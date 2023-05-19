@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const AnimalList = () => {
   const animals = [
     {
@@ -26,23 +28,38 @@ const AnimalList = () => {
       dateOfBirth: new Date().toDateString(),
     },
   ];
+
+  const [animalsArray, setAnimalsArray] = useState(animals);
+
+  const onRemove = (name) => {
+    setAnimalsArray((prevState) =>
+      prevState.filter((animal) => animal.name !== name)
+    );
+  };
   return (
     <div>
-      {animals.map((el) => (
-        <div
-          key={el}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            border: "1px solid red",
-          }}
-        >
-          <div>someth: {el.someth} </div>
-          <div>name: {el.name} </div>
-          <div>date: {el.dateOfBirth ? el.dateOfBirth : "Nepoznat"} </div>
-        </div>
-      ))}
+      <table>
+        <thead>
+          <tr>
+            <th>Ime zivotinje</th>
+            <th>Vrsta zivotinje</th>
+            <th>Datum zivotinje</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          {animalsArray.map((animal, index) => (
+            <tr key={index}>
+              <td>{animal.name}</td>
+              <td>{animal.someth}</td>
+              <td>{animal.dateOfBirth}</td>
+              <td>
+                <button onClick={() => onRemove(animal.name)}>Remove</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
