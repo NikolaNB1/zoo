@@ -40,7 +40,7 @@ const AnimalList = () => {
         >
           <div>someth: {el.someth} </div>
           <div>name: {el.name} </div>
-          <div>date: {el.dateOfBirth} </div>
+          <div>date: {el.dateOfBirth ? el.dateOfBirth : "Nepoznat"} </div>
         </div>
       ))}
     </div>
