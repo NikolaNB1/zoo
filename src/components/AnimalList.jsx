@@ -36,6 +36,14 @@ const AnimalList = () => {
       prevState.filter((animal) => animal.name !== name)
     );
   };
+  const onTop = (index) => {
+    const topAnimal = animalsArray[index];
+    setAnimalsArray((prevState) => [
+      topAnimal,
+      ...prevState.filter((_, id) => id !== index),
+    ]);
+  };
+
   return (
     <div>
       <table>
@@ -45,6 +53,7 @@ const AnimalList = () => {
             <th>Vrsta zivotinje</th>
             <th>Datum zivotinje</th>
             <th>Remove</th>
+            <th>Move to top</th>
           </tr>
         </thead>
         <tbody>
@@ -55,6 +64,9 @@ const AnimalList = () => {
               <td>{animal.dateOfBirth}</td>
               <td>
                 <button onClick={() => onRemove(animal.name)}>Remove</button>
+              </td>
+              <td>
+                <button onClick={() => onTop(index)}>Move to top</button>
               </td>
             </tr>
           ))}
