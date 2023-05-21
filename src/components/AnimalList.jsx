@@ -3,29 +3,34 @@ import { useState } from "react";
 const AnimalList = () => {
   const animals = [
     {
-      species: "cat",
+      species: "sisar",
       name: "macka",
       dateOfBirth: new Date().toDateString(),
+      sector: "macka",
     },
     {
-      species: "dog",
+      species: "sisar",
       name: "pas",
       dateOfBirth: new Date().toDateString(),
+      sector: "pas",
     },
     {
-      species: "elephant",
+      species: "sisar",
       name: "slon",
       dateOfBirth: new Date().toDateString(),
+      sector: "slon",
     },
     {
-      species: "tiger",
+      species: "sisar",
       name: "tigar",
       dateOfBirth: new Date().toDateString(),
+      sector: "tigar",
     },
     {
-      species: "lion",
+      species: "sisar",
       name: "lav",
       dateOfBirth: new Date().toDateString(),
+      sector: "lav",
     },
   ];
 
@@ -35,6 +40,7 @@ const AnimalList = () => {
     name: "",
     species: "",
     dateOfBirth: "",
+    sector: "",
   });
 
   const handleSubmit = (event) => {
@@ -45,6 +51,7 @@ const AnimalList = () => {
       name: state.name,
       species: state.species,
       dateOfBirth: state.dateOfBirth,
+      sector: state.sector,
     };
     console.log(state);
 
@@ -72,6 +79,15 @@ const AnimalList = () => {
     ]);
   };
 
+  const onSectorAlert = (sector) => {
+    let animalsSector = animalsArray.filter(
+      (animal) => animal.sector === sector
+    );
+    let allAnimals = "";
+    animalsSector.forEach((animal) => (allAnimals += animal.name + ", "));
+    alert(allAnimals);
+  };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -96,6 +112,16 @@ const AnimalList = () => {
           value={state.dateOfBirth}
           onChange={handleInputChange}
         />
+        <select name="sector" value={state.sector} onChange={handleInputChange}>
+          <option disabled defaultValue>
+            Select sector:
+          </option>
+          <option value="macka">macka</option>
+          <option value="pas">pas</option>
+          <option value="slon">slon</option>
+          <option value="tigar">tigar</option>
+          <option value="lav">lav</option>
+        </select>
         <button type="submit">Add animal</button>
       </form>
       <table>
@@ -104,6 +130,7 @@ const AnimalList = () => {
             <th>Ime zivotinje</th>
             <th>Vrsta zivotinje</th>
             <th>Datum rodjenja</th>
+            <th>Sector</th>
             <th>Remove</th>
             <th>Move to top</th>
           </tr>
@@ -114,11 +141,17 @@ const AnimalList = () => {
               <td>{animal.name}</td>
               <td>{animal.species}</td>
               <td>{animal.dateOfBirth}</td>
+              <td>{animal.sector}</td>
               <td>
                 <button onClick={() => onRemove(animal.name)}>Remove</button>
               </td>
               <td>
                 <button onClick={() => onTop(index)}>Move to top</button>
+              </td>
+              <td>
+                <button onClick={() => onSectorAlert(animal.sector)}>
+                  Show animals in sector
+                </button>
               </td>
             </tr>
           ))}
