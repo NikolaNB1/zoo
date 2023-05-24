@@ -36,3 +36,136 @@
     transform: rotate(360deg);
   }
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.site-container {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+html {
+  font-family: sans-serif;
+  text-transform: capitalize;
+}
+
+.site-header {
+  border-bottom: 1px solid grey;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  margin: 0 5px 20px 5px;
+}
+
+.site-logo {
+  text-decoration: none;
+  color: grey;
+  font-size: 20px;
+}
+
+.site-logo:hover {
+  color: rgb(94, 94, 94);
+}
+
+.site-navigation ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.site-navigation ul li {
+  margin-right: 5px;
+}
+
+.site-navigation ul li a {
+  padding: 10px;
+  color: rgb(79, 79, 242);
+  text-decoration: none;
+  display: block;
+  border-radius: 4px;
+}
+
+.site-navigation ul li a:hover {
+  color: white;
+  background-color: rgb(88, 88, 248);
+}
+
+.section {
+  margin: 20px 20px 0 20px;
+  border-radius: 5px;
+  background-color: rgb(161, 206, 224);
+  padding: 30px;
+  text-align: center;
+  color: #444;
+}
+.title {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+
+.animalsList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animalsList table {
+  background-color: rgb(161, 206, 224);
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.animalsForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animalsForm ul {
+  list-style-type: none;
+  background-color: rgb(161, 206, 224);
+  border-radius: 5px;
+  padding: 20px;
+}
+.animalsForm li {
+  margin: 10px;
+}
+
+.animalsSector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.animalsSector table {
+  background-color: rgb(161, 206, 224);
+  border-radius: 5px;
+  padding: 20px;
+}
+.seeAnimal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.seeAnimal ul {
+  list-style-type: none;
+}
+.seeAnimal li {
+  margin: 10px;
+}
+.seeAnimal li h2 {
+  color: rgb(56, 112, 134);
+}
+.seeSector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.seeSector h2 {
+  color: rgb(56, 112, 134);
+}
