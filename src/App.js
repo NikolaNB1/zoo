@@ -19,7 +19,7 @@ const listOfAnimals = [
   {
     species: "sisar",
     name: "pas",
-    dateOfBirth: new Date().toDateString(),
+    // dateOfBirth: new Date().toDateString(),
     sector: "pas",
   },
   {
@@ -31,7 +31,7 @@ const listOfAnimals = [
   {
     species: "sisar",
     name: "tigar",
-    dateOfBirth: new Date().toDateString(),
+    // dateOfBirth: new Date().toDateString(),
     sector: "tigar",
   },
   {
